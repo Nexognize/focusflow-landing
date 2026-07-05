@@ -70,6 +70,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  overflow-x: clip;
 }
 
 body {
@@ -1083,14 +1084,38 @@ a {
   }
 }
 
+@media (max-width: 900px) {
+  .header-mail {
+    display: none;
+  }
+
+  .header-cta {
+    padding: 0.42rem 0.72rem;
+    font-size: 0.8rem;
+  }
+}
+
 @media (max-width: 720px) {
   .section {
     padding: 2.15rem 0;
   }
 
-  .nav,
-  .header-cta {
+  .nav {
     display: none;
+  }
+
+  .header-inner {
+    min-height: 56px;
+  }
+
+  .header-actions {
+    margin-left: auto;
+  }
+
+  .header-cta {
+    display: inline-flex;
+    padding: 0.42rem 0.7rem;
+    font-size: 0.78rem;
   }
 
   .grid.three,
@@ -1431,13 +1456,20 @@ body.neo-shell .site-footer {
     transform: none;
   }
 
-  .header-mail {
+  body.neo-shell .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 0.95rem;
+  }
+
+  body.neo-shell .hero-copy h1 {
+    max-width: none;
   }
 }
 
 @media (max-width: 720px) {
   body.neo-shell .site-header {
     top: 8px;
+    width: calc(100% - 0.8rem);
   }
 
   body.neo-shell .section:nth-of-type(even)::before {
@@ -1446,5 +1478,85 @@ body.neo-shell .site-footer {
 
   body.neo-shell .hero {
     padding-top: 5.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: calc(100% - 1rem);
+  }
+
+  .card {
+    border-radius: 16px;
+    padding: 0.9rem;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.85rem, 8.3vw, 2.35rem);
+    line-height: 1.08;
+  }
+
+  .hero-badges {
+    gap: 0.42rem;
+  }
+
+  .hero-badges span {
+    font-size: 0.7rem;
+    padding: 0.28rem 0.48rem;
+  }
+
+  .engine-stage {
+    min-height: 520px;
+  }
+
+  .engine-node {
+    width: min(270px, calc(100% - 1.6rem));
+  }
+
+  body.neo-shell .site-header {
+    width: calc(100% - 0.5rem);
+    top: 6px;
+  }
+
+  body.neo-shell .header-inner {
+    padding: 0 0.72rem;
+  }
+
+  body.neo-shell .hero {
+    padding-top: 5.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .engine-stage {
+    min-height: auto;
+    display: grid;
+    gap: 0.65rem;
+    padding: 0.7rem;
+    align-content: start;
+  }
+
+  .engine-stage::before,
+  .engine-stage::after {
+    display: none;
+  }
+
+  .engine-hub,
+  .engine-node,
+  .node-a,
+  .node-b,
+  .node-c {
+    position: static;
+    width: 100%;
+    transform: none;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+  }
+
+  .engine-node {
+    border-radius: 14px;
+    padding: 0.68rem;
   }
 }
